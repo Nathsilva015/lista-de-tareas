@@ -2,10 +2,10 @@ const btn = document.getElementById("btn")
 const input = document.getElementById("input")
 const lista = document.getElementById("lista")
 const tarea = document.getElementById("tareas")
-const tareasCompletadas = document.getElementById("completadas")
+const completadas = document.getElementById("completadas")
 
 let tareas = 0
-let completadas = 0
+let completado = 0
 
 function agregar(){
     if (input.value.trim() === "") {
@@ -21,32 +21,32 @@ function agregar(){
 
     const boton = document.createElement("button");
     const icono = document.createElement("img");
+    const boton2 = document.createElement("input");
+
     icono.src = "trash.svg";
     boton.classList.add("eliminar")
-
-
     boton.appendChild(icono);
     boton.addEventListener("click", function(){
         contenedor.remove()
         tareas--
-        if (boton2.checked) {
-            completadas--
-            tareasCompletadas.textContent = completadas + (completadas === 1 ? " tarea completada" : " tareas completadas")
-        }
         tarea.textContent = tareas + " tareas"
-
+        if(boton2.checked){
+            completado--
+        }
+        completadas.textContent = completado + " completadas"
     });
 
-    const boton2 = document.createElement("input");
     boton2.type = "checkbox"
     boton2.addEventListener("change", function() {
+        console.log(boton2.checked)
         if (boton2.checked) {
-            completadas++
+            completado++
         } else {
-            completadas--
+            completado--
         }
-        tareasCompletadas.textContent = completadas + (completadas === 1 ? " tarea completada" : " tareas completadas")
+        completadas.textContent = completado + " completadas"
     })
+
 
     contenedor.appendChild(boton2)
     contenedor.appendChild(parrafo)

@@ -60,3 +60,21 @@ body {
     border-radius: 20px;
     padding: 8px;
 }
+
+#texto{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    border: 2px solid white;
+    padding: 12px;
+    background: white;
+    border-radius: 12px;
+}
+
+#texto p {
+    margin: 0;
+}
